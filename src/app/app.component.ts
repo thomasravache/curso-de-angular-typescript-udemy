@@ -3,7 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   // transferir pra cá o router pra ficar mais organizado
-  template: '<router-outlet></router-outlet>',
+  template: `
+    <app-title title="Olá mundo"></app-title>
+    <router-outlet></router-outlet>
+  `,
   // tem mais propriedades a serem utilizadas
 })
 export class AppComponent implements OnInit {
