@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  // transferir pra cá o router pra ficar mais organizado
+  template: '<router-outlet></router-outlet>',
   // tem mais propriedades a serem utilizadas
 })
 export class AppComponent {
