@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   styleUrls: ['./title.component.scss']
 })
 // Toda lógica javascript é colocada aqui
-export class TitleComponent implements OnInit, OnChanges {
+export class TitleComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() // Decorator da propriedade title para entrada de dados
   public title: string = "Bem vindo!";
@@ -22,5 +22,9 @@ export class TitleComponent implements OnInit, OnChanges {
   // Quando iniciar o componente ele vai fazer algo (Ciclo de vida do componente)
   ngOnInit(): void {
     
+  }
+
+  ngOnDestroy(): void {
+    console.log("Deu bom, ele foi destruído");
   }
 }

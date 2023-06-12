@@ -12,9 +12,11 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
   selector: 'app-root',
   // transferir pra cá o router pra ficar mais organizado
   template: `
-    <app-title title="Olá mundo"></app-title>
+    <app-title title="Olá mundo" *ngIf="destruir"></app-title>
     {{valor}}
     <button (click)="adicionar()">Adicionar</button>
+    <br>
+    <button (click)="destruirComponent()">Destruir componente</button>
     <router-outlet></router-outlet>
   `,
   // tem mais propriedades a serem utilizadas
@@ -27,6 +29,12 @@ export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
   constructor() {
 
+  }
+
+  public destruir: boolean = true;
+
+  public destruirComponent() {
+    this.destruir = false;
   }
 
   public adicionar(): number {
