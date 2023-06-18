@@ -1,5 +1,7 @@
 <!-- Syntax sugar do ngIf -->
 <!-- Se condition for true então coloca o texto True senão coloca o texto False que está no elseBlock -->
+<h1>Diretivas Estruturais</h1>
+
 <p *ngIf="condition; else elseBlock">True</p>
 <ng-template #elseBlock>
     <p>
@@ -43,3 +45,4 @@
     <p *ngSwitchCase="'teste'">Teste</p>
     <p *ngSwitchDefault>Deu ruim sua busca</p>
 </div>
+
