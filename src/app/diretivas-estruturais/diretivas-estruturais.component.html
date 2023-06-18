@@ -20,3 +20,17 @@
 </p>
 
 <button (click)="onClick()">Clicar</button>
+
+<hr>
+
+<ul>
+    <li *ngFor="let item of list; let i = index">
+        [ {{ i }} ] - {{ item.nome }} - {{ item.idade }} anos
+        <button (click)="onClickEventList($event, i)">Remover</button>
+    </li>
+</ul>
+
+<input placeholder="nome" [(ngModel)]="form.nome" type="text">
+<input placeholder="idade" [(ngModel)]="form.idade" type="text">
+
+<button (click)="onClickAddList()">Add</button>
