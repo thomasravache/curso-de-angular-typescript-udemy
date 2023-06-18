@@ -34,3 +34,12 @@
 <input placeholder="idade" [(ngModel)]="form.idade" type="text">
 
 <button (click)="onClickAddList()">Add</button>
+
+<hr>
+
+<input type="text" [(ngModel)]="nome" >
+<div [ngSwitch]="nome">
+    <p *ngSwitchCase="'thomas'">Thomas</p>
+    <p *ngSwitchCase="'teste'">Teste</p>
+    <p *ngSwitchDefault>Deu ruim sua busca</p>
+</div>

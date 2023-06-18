@@ -17,6 +17,7 @@ export class DiretivasEstruturaisComponent implements OnInit {
     nome: '',
     idade: null,
   };
+  public nome: string = 'thomas';
 
   constructor() {
 
