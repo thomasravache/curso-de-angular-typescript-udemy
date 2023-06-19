@@ -10,6 +10,7 @@ export class DiretivasAtributosComponent implements OnInit {
   public heightPx: string = '20px';
   public nome: string = '';
   public list: Array<{ nome: string }> = [];
+  public date: Date = new Date();
 
 
   ngOnInit(): void {

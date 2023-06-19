@@ -38,3 +38,18 @@
 <hr>
 
 <ng-content select="hr"></ng-content>
+
+<hr>
+
+<h3>Pipes</h3>
+<input [(ngModel)]="nome"> {{ nome }}
+<button (click)="salvar()">Salvar</button>
+
+<!-- dessa forma o li é criado mesmo se não tiver uma lista com valor
+      - o li é criado e se não tiver nada ele some
+-->
+<li *ngFor="let item of list">{{ item.nome | uppercase }}</li>
+
+<p>
+    {{ date | date: 'dd/MM/yyyy' }}
+</p>
