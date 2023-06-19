@@ -8,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class DiretivasAtributosComponent implements OnInit {
   public valor: boolean = false;
   public heightPx: string = '20px';
+  public nome: string = '';
+  public list: Array<{ nome: string }> = [];
+
 
   ngOnInit(): void {
     setInterval(() => {
       this.valor ? this.valor = false : this.valor = true;
       this.heightPx === '20px' ? this.heightPx = '50px' : this.heightPx = '20px';
     }, 2000);
+  }
+
+  public salvar(): void {
+    this.list.push({ nome: this.nome });
+    this.nome = '';
   }
 }

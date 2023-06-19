@@ -17,6 +17,7 @@ import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atr
     DiretivasEstruturaisComponent,
     DiretivasAtributosComponent
   ],
+  // import serve pra trazer de algum lugar
   imports: [
     BrowserModule,
     AppRoutingModule,

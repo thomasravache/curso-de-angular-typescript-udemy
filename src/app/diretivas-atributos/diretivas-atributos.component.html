@@ -1,5 +1,14 @@
 <h1>Diretivas de Atributos</h1>
 
 <!-- Com o ngClass é possível fazer validações, diferente de somente class do html -->
-<p [ngClass]="{'active': valor, 'disabled': !valor}"> NgClass </p>
-<p [ngStyle]="{'height': heightPx}"> NgClass </p>
+<div *ngIf="nome !== 'thomas'">
+    <p [ngClass]="{'active': valor, 'disabled': !valor}"> NgClass </p>
+    <p [ngStyle]="{'height': heightPx}"> NgClass </p>
+</div>
+
+<hr>
+
+<input [(ngModel)]="nome"> {{ nome }}
+<button (click)="salvar()">Salvar</button>
+
+<li *ngFor="let item of list">{{ item.nome }}</li>
