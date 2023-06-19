@@ -11,4 +11,24 @@
 <input [(ngModel)]="nome"> {{ nome }}
 <button (click)="salvar()">Salvar</button>
 
+<!-- dessa forma o li é criado mesmo se não tiver uma lista com valor
+      - o li é criado e se não tiver nada ele some
+-->
 <li *ngFor="let item of list">{{ item.nome }}</li>
+
+<!-- 
+    ng-template:
+    um elemento limpo html que ajuda a fazer verificações com ngIf
+    antes do DOM ser carregado
+
+    - Se tiver muito grande ele pode ter perda de performance
+    - encapsula dados para fazer validações
+ -->
+
+ <!-- com ng-template já é feita a validação se a lista está vazia ou não antes de mostrar -->
+<p>Lista com ng-template</p>
+<ng-template ngFor let-item [ngForOf]="list">
+
+    <li>{{ item.nome }}</li>
+
+</ng-template>
