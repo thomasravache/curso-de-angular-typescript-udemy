@@ -20,7 +20,8 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
       <hr>
     </app-diretivas-atributos> -->
 
-    <app-diretivas-atributos></app-diretivas-atributos>
+    <!-- <app-diretivas-atributos></app-diretivas-atributos> -->
+    <app-new-component></app-new-component>
     <router-outlet></router-outlet>
   `,
   // tem mais propriedades a serem utilizadas
