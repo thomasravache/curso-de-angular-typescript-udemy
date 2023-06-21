@@ -24,6 +24,10 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
     <!-- <app-new-component></app-new-component> -->
     <app-input [contador]="addValue"></app-input> <br>
     <button (click)="add()">Add</button>
+
+    <br>
+
+    <app-output></app-output>
     <router-outlet></router-outlet>
   `,
   // tem mais propriedades a serem utilizadas
