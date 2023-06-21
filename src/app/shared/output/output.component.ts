@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class OutputComponent {
   // EventEmitter vai falar que está emitindo um valor e o output vai avisar os outros componentes pra pegar o valor
+  // Vai ser utilizado igual se fosse um evento de (click) por exemplo
   @Output() public enviarDados = new EventEmitter();
   public list: Array<{ nome: string, idade: number }> = [
     { nome: 'Thomas', idade: 24 },
