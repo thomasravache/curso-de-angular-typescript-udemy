@@ -21,7 +21,9 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
     </app-diretivas-atributos> -->
 
     <!-- <app-diretivas-atributos></app-diretivas-atributos> -->
-    <app-new-component></app-new-component>
+    <!-- <app-new-component></app-new-component> -->
+    <app-input [contador]="addValue"></app-input> <br>
+    <button (click)="add()">Add</button>
     <router-outlet></router-outlet>
   `,
   // tem mais propriedades a serem utilizadas
@@ -29,6 +31,13 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
 export class AppComponent implements OnInit {
   // Propriedade pública
   // public title = "Bem vindo!";
+
+  // Esse valor é passado pro contador do componente app-input
+  public addValue: number = 0;
+
+  public add(): void {
+    this.addValue += 1;
+  }
 
   constructor() {
 
