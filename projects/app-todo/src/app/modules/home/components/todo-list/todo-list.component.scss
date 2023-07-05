@@ -28,6 +28,7 @@ section{
       input{
         &[type="checkbox"]{
           width: 5%;
+          cursor: pointer;
         }
         &[type="text"]{
           width: 80%;

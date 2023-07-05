@@ -7,12 +7,14 @@ import { ITaskList } from '../../model/task-list';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit, DoCheck {
-  public taskList: Array<ITaskList> = [];
+  public taskList: Array<ITaskList> = JSON.parse(localStorage.getItem('list') ?? '[]');
 
   constructor() {  }
 
   ngDoCheck(): void {
+
     this.taskList.sort((first, last) => Number(first.checked) - Number(last.checked));
+    this._setLocalStorage();
   }
 
   ngOnInit(): void {  }
@@ -43,6 +45,12 @@ export class TodoListComponent implements OnInit, DoCheck {
       if (confirm) {
         this.deleteItemTaskList(index);
       }
+    }
+  }
+
+  private _setLocalStorage(): void {
+    if (this.taskList) {
+      localStorage.setItem('list', JSON.stringify(this.taskList));
     }
   }
 }
