@@ -34,6 +34,7 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
     </ng-template>
     <app-output (enviarDados)="setDados($event)"></app-output> -->
 
+    <app-food-add></app-food-add>
     <app-food-list></app-food-list>
     <router-outlet></router-outlet>
   `,

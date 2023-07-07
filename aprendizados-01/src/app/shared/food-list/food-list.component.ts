@@ -15,6 +15,9 @@ export class FoodListComponent implements OnInit {
     // this.foodList = myFoodListService.foodList();
   }
 
+  // Como está compartilhando o serviço ele será acionado novamente quando
+  // a lista da service for alterada por outro component que a estiver utilizando 
+  // Utilizamos a comunicação sem utilizar @Output e @Input
   ngOnInit(): void {
     this.foodList = this.foodListService.foodList();
   }
