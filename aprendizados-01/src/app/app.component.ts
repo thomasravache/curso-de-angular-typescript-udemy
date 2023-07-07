@@ -28,11 +28,13 @@ import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked, Afte
     <br> -->
 
     <!-- Recebendo o evento do output componente que criamos -->
-    <ng-template [ngIf]="getDados"]>
+    <!-- <ng-template [ngIf]="getDados"]>
       <h1>{{ getDados.nome }}</h1>
       <h2>{{ getDados.idade }}</h2>
     </ng-template>
-    <app-output (enviarDados)="setDados($event)"></app-output>
+    <app-output (enviarDados)="setDados($event)"></app-output> -->
+
+    <app-food-list></app-food-list>
     <router-outlet></router-outlet>
   `,
   // tem mais propriedades a serem utilizadas
