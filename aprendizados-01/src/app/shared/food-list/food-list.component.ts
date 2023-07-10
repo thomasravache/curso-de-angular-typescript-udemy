@@ -20,5 +20,10 @@ export class FoodListComponent implements OnInit {
   // Utilizamos a comunicação sem utilizar @Output e @Input
   ngOnInit(): void {
     this.foodList = this.foodListService.foodList();
+
+    // Se inscrevendo no evento para ele me atualizar sempre que o evento for emitido
+    this.foodListService.emitEvent.subscribe(
+      (res) => alert(`Olha, você adicionou um item => ${res}`),
+    )
   }
 }
