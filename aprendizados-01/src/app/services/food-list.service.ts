@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IFoodList } from '../modules/i-food-list';
 
 /* 
   Injectable quer dizer que é pra ser utilizado como injeção de dependência
@@ -19,10 +22,22 @@ export class FoodListService {
     'Ovo'
   ];
 
-  constructor() { }
+  private readonly _url: string = 'http://localhost:3000';
 
-  public foodList() {
-    return this._list;
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  // public foodList() {
+  //   return this._list;
+  // }
+
+  public foodList(): Observable<Array<IFoodList>> {
+    return this.http.get<Array<IFoodList>>(`${this._url}/list-food`)
+      .pipe(
+        (res) => res,
+        (error) => error,
+      ); // pipe: proximo passo
   }
 
   public foodListAdd(value: string): void {

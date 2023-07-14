@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFoodList } from 'src/app/modules/i-food-list';
 import { FoodListService } from 'src/app/services/food-list.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { FoodListService } from 'src/app/services/food-list.service';
   styleUrls: ['./food-list.component.scss']
 })
 export class FoodListComponent implements OnInit {
-  public foodList: Array<string> = [];
+  public foodList: IFoodList | any;
 
   constructor(private foodListService: FoodListService) {
     // fazer a injeção de dependência seria o mesmo que fazer isso aqui
@@ -19,7 +20,10 @@ export class FoodListComponent implements OnInit {
   // a lista da service for alterada por outro component que a estiver utilizando 
   // Utilizamos a comunicação sem utilizar @Output e @Input
   ngOnInit(): void {
-    this.foodList = this.foodListService.foodList();
+    this.foodListService.foodList().subscribe({
+      next: (value: Array<IFoodList>) => this.foodList = value,
+      error: (error: any) => console.log(error),
+    });
 
     // Se inscrevendo no evento para ele me atualizar sempre que o evento for emitido
     this.foodListService.emitEvent.subscribe(
