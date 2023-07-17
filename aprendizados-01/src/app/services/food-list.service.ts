@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IFoodList } from '../modules/i-food-list';
@@ -21,6 +21,13 @@ export class FoodListService {
     'Feijão',
     'Ovo'
   ];
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer token' // exemplo
+    })
+  }
 
   private readonly _url: string = 'http://localhost:3000';
 
@@ -47,7 +54,7 @@ export class FoodListService {
 
   public foodListAdd(value: string): Observable<IFoodList> {
     // depois da requisição o pipe entra para fazer o tratamento pra quem for pegar a informação
-    return this.http.post<IFoodList>(`${this._url}/list-food`, { nome: value })
+    return this.http.post<IFoodList>(`${this._url}/list-food`, { nome: value }, this.httpOptions)
       .pipe(
         (res) => res,
         (error) => error,
@@ -56,7 +63,7 @@ export class FoodListService {
 
   public foodListEdit(value: string, id: number): Observable<IFoodList> {
     // depois da requisição o pipe entra para fazer o tratamento pra quem for pegar a informação
-    return this.http.put<IFoodList>(`${this._url}/list-food/${id}`, { nome: value })
+    return this.http.put<IFoodList>(`${this._url}/list-food/${id}`, { nome: value }, this.httpOptions)
       .pipe(
         (res) => res,
         (error) => error,
@@ -65,7 +72,7 @@ export class FoodListService {
 
   public foodListDelete(id: number): Observable<any> {
     // depois da requisição o pipe entra para fazer o tratamento pra quem for pegar a informação
-    return this.http.delete<any>(`${this._url}/list-food/${id}`)
+    return this.http.delete<any>(`${this._url}/list-food/${id}`, this.httpOptions)
       .pipe(
         (res) => res,
         (error) => error,
