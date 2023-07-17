@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IFoodList } from 'src/app/modules/i-food-list';
 import { FoodListService } from 'src/app/services/food-list.service';
@@ -32,5 +33,28 @@ export class FoodListComponent implements OnInit {
         this.foodList.push(res);
       }
     )
+  }
+
+  public foodListDelete(id: number): void {
+    this.foodListService.foodListDelete(id).subscribe({
+      next: (_res) => {
+        const { nome } = this.foodList.find((item) => item.id === id) as IFoodList;
+
+        alert(`Olha, você deletou um item => ${nome ?? ''}`);
+        this.foodList = this.foodList.filter((item) => item.id !== id);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    })
+  }
+
+  public foodListEdit(nome: string, id: number): void {
+    this.foodListService.foodListEdit(nome, id).subscribe({
+      next: (res: IFoodList) => {
+        console.log(res);
+      },
+      error: (error: HttpErrorResponse) => console.log(error),
+    })
   }
 }
