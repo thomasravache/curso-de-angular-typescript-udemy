@@ -8,7 +8,7 @@ import { FoodListService } from 'src/app/services/food-list.service';
   styleUrls: ['./food-list.component.scss']
 })
 export class FoodListComponent implements OnInit {
-  public foodList: IFoodList | any;
+  public foodList: Array<IFoodList> = [];
 
   constructor(private foodListService: FoodListService) {
     // fazer a injeção de dependência seria o mesmo que fazer isso aqui
@@ -27,7 +27,10 @@ export class FoodListComponent implements OnInit {
 
     // Se inscrevendo no evento para ele me atualizar sempre que o evento for emitido
     this.foodListService.emitEvent.subscribe(
-      (res) => alert(`Olha, você adicionou um item => ${res}`),
+      (res: IFoodList) => {
+        alert(`Olha, você adicionou um item => ${res.nome}`);
+        this.foodList.push(res);
+      }
     )
   }
 }

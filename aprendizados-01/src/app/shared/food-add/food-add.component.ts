@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { IFoodList } from 'src/app/modules/i-food-list';
 import { FoodListService } from 'src/app/services/food-list.service';
 
 @Component({
@@ -11,6 +13,9 @@ export class FoodAddComponent {
 
   public listAddItem(value: string): void {
     console.log(value);
-    this.foodListService.foodListAdd(value);
+    this.foodListService.foodListAdd(value).subscribe({
+      next: (res: IFoodList) => this.foodListService.foodListAlert(res),
+      error: (error: HttpErrorResponse) => console.log(error),
+    });
   }
 }

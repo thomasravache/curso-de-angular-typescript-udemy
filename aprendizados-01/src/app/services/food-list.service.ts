@@ -40,12 +40,21 @@ export class FoodListService {
       ); // pipe: proximo passo
   }
 
-  public foodListAdd(value: string): void {
-    this.foodListAlert(value);
-    this._list.push(value);
+  // public foodListAdd(value: string): void {
+  //   this.foodListAlert(value);
+  //   this._list.push(value);
+  // }
+
+  public foodListAdd(value: string): Observable<IFoodList> {
+    // depois da requisição o pipe entra para fazer o tratamento pra quem for pegar a informação
+    return this.http.post<IFoodList>(`${this._url}/list-food`, { nome: value })
+      .pipe(
+        (res) => res,
+        (error) => error,
+      );
   }
 
-  public foodListAlert(value: string): void {
+  public foodListAlert(value: IFoodList): void {
     return this.emitEvent.emit(value);
   }
 }
