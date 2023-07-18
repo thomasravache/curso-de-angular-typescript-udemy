@@ -1,0 +1,13 @@
+<form #form="ngForm"> <!-- #form seria um template ref que pode ter qualquer nome -->
+    <label for="">
+        Nome:
+        <input type="text" name="nome" ngModel>
+    </label>
+
+    <br>
+    <br>
+</form>
+
+<br>
+<br>
+{{ form.value | json }}
