@@ -54,6 +54,26 @@
 
     <br>
     <br>
+
+    <select name="comidas" ngModel>
+        <option value="">Selecione um alimento</option>
+        <option value="X-Salada">X-Salada</option>
+        <option value="X-Bacon">X-Bacon</option>
+        <option value="Coxinha">Coxinha</option>
+    </select>
+
+    <br>
+    <p>Usando for com Select</p>
+
+    <select name="comidas" ngModel>
+        <option value="">Selecione um alimento</option>
+        <option *ngFor="let item of listComidas" [ngValue]="item.comida"> <!-- ngValue permite que a gente selecione o objeto inteiro como valor, se fosse como [value] não daria certo -->
+            {{item.comida}}
+        </option>
+    </select>
+
+    <br>
+    <br>
 </form>
 
 <br>
