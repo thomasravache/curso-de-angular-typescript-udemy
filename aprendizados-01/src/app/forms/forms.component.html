@@ -1,4 +1,4 @@
-<form #form="ngForm"> <!-- #form seria um template ref que pode ter qualquer nome -->
+<form #form="ngForm" (ngSubmit)="submitForm(form)"> <!-- #form seria um template ref que pode ter qualquer nome -->
     <label>
         Nome:
         <input type="text" name="nome" #nome="ngModel" [ngModel]="nome.value" required>
@@ -89,6 +89,8 @@
 
     <br>
     <br>
+
+    <button [disabled]="form.invalid">Enviar Dados</button>
 </form>
 
 <br>
