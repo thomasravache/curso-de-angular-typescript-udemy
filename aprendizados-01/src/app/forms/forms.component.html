@@ -1,8 +1,23 @@
 <form #form="ngForm"> <!-- #form seria um template ref que pode ter qualquer nome -->
     <label>
         Nome:
-        <input type="text" name="nome" ngModel>
+        <input type="text" name="nome" #nome="ngModel" [ngModel]="nome.value" required>
+        <span *ngIf="form.invalid && (nome.dirty && nome.touched)" style="color: red;"> Invalid</span>
     </label>
+
+    <br>
+    <br>
+
+    Nome Válido? {{ nome.valid }} <br> <!-- Quando está válido -->
+    Nome Dirty? {{ nome.dirty }} <br> <!-- Quando tá sujo, tem coisa dentro dele -->
+    Nome Touched? {{ nome.touched }} <br> <!-- Quando o form é tocado -->
+    <br>
+    Form Válido? {{ form.valid }}
+    <!--
+    valid
+    dirty
+    touched
+    -->
 
     <br>
     <br>
