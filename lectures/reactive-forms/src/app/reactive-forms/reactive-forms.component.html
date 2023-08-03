@@ -1,0 +1,10 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+    <input type="text" formControlName="firstName"><br>
+    <input type="text" formControlName="lastName"><br>
+
+    <button>Enviar</button>
+
+    <br>
+    {{ cadastroForm.value | json }}
+    {{ cadastroForm.get('firstName')?.value }}
+</form>
