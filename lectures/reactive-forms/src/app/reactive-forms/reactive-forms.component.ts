@@ -17,6 +17,8 @@ export class ReactiveFormsComponent {
   ) { }
 
   public submitForm(): void {
+    if (this.cadastroForm.invalid) return;
+    
     console.log(this.cadastroForm);
   }
 }
