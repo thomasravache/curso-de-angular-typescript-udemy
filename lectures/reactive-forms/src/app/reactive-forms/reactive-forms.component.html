@@ -14,13 +14,31 @@
     <label >
         Sobrenome:
         <input type="text" formControlName="lastName"><br>
+
+        <span style="color: red;" *ngIf="getErrors('lastName')?.minlength">
+            Deve ter no mínimo {{ getErrors('lastName')?.minlength?.requiredLength }} caractéres
+            e você já digitou {{ getErrors('lastName')?.minlength?.actualLength }}
+        </span>
+    </label>
+
+    <label >
+        E-mail:
+        <input type="email" formControlName="email"><br>
+
+        <span style="color: red;" *ngIf="getErrors('email')?.minlength">
+            Deve ter no mínimo {{ getErrors('email')?.minlength?.requiredLength }} caractéres
+            e você já digitou {{ getErrors('email')?.minlength?.actualLength }}
+        </span>
     </label>
 
     <p>
         Erros:
-        {{ cadastroForm.get('firstName')?.errors | json }}
+        <!-- {{ cadastroForm.get('firstName')?.errors | json }}
         {{ cadastroForm.get('firstName')?.touched | json }}
-        {{ cadastroForm.get('firstName')?.dirty | json }}
+        {{ cadastroForm.get('firstName')?.dirty | json }} -->
+
+        {{ cadastroForm.get('lastName')?.errors | json }}
+        {{ cadastroForm.get('email')?.errors | json }}
     </p>
 
     <button [disabled]="cadastroForm.invalid">Enviar</button>
