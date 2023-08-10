@@ -5,14 +5,19 @@
                 Colocando com o array a rota, já facilita quando formos 
                 utilizar rotas parametrizadas
              -->
+
+             <!-- 
+                [routerLinkActive]="['class']"
+                [routerLinkActiveOptions]="{ exact: true }" -> exact: true serve para entender que uma rota é ativa só quando tiver o endereço exato
+              -->
             <li>
-                <a routerLink="/">Home</a>
+                <a routerLink="/" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home</a>
             </li>
             <li>
-                <a [routerLink]="['/sobre']">Sobre</a>
+                <a [routerLink]="['/sobre']" [routerLinkActive]="['active']">Sobre</a>
             </li>
             <li>
-                <a [routerLink]="['/404']">Error</a>
+                <a [routerLink]="['/404']" [routerLinkActive]="['active']">Error</a>
             </li>
         </ul>
     </nav>
