@@ -1,0 +1,19 @@
+<header>
+    <nav>
+        <ul>
+            <!-- 
+                Colocando com o array a rota, já facilita quando formos 
+                utilizar rotas parametrizadas
+             -->
+            <li>
+                <a routerLink="/">Home</a>
+            </li>
+            <li>
+                <a [routerLink]="['/sobre']">Sobre</a>
+            </li>
+            <li>
+                <a [routerLink]="['/404']">Error</a>
+            </li>
+        </ul>
+    </nav>
+</header>
