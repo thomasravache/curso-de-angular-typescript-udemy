@@ -8,7 +8,11 @@ import { PageErrorComponent } from './pages/page-error/page-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'sobre/:id/:username', component: SobreComponent },
+  { path: 'sobre', component: SobreComponent,
+    children: [
+      { path: ':id/:username', component: SobreComponent } // /sobre funcionaria e /sobre/id/nome funcionaria como filho da rota sobre
+    ]
+  },
   { path: '404', component: PageErrorComponent },
   { path: '**', redirectTo: '404' } // sempre que digitar uma rota errada ele cai na rota coringa que redireciona pra rota 404 que é a rota de erro
 ];
